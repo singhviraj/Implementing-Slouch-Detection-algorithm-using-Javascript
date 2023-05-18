@@ -9,17 +9,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
-            var a =10;
-            document.write(a);
-           const fs = require("fs");
-var file = "mds.txt";
-var reader = new FileReader();
-var result = reader.readAsText(file);
-document.write(result);
+           function bang() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    var x = this.responseText;
+    var lines = x.split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      var word = lines[i].split(',');
+       for (var j = 0; j < word.length; j++){
+           document.write(word[i]);
+       }
+          }
+  }
+  xhttp.open("GET", "mds.txt");
+  xhttp.send();
+}
+
+
             </script>
         
     </head>
     <body>
-        <div>TODO write content</div>
+    <div id="demo">
+<p>Let AJAX change this text.</p>
+<button type="button" onclick="bang()">Change Content</button>
+</div>
     </body>
 </html>
