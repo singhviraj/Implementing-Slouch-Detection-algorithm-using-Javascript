@@ -47,54 +47,67 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     }
                  return temp;
             }  */
-            function condition( o ){
-                let p=0;
+            function condition( arr1 ){
+                // in this function I converted each hecadecimal into is decimal by seperating each character 
+                let sum =0,zaxis =0;
+                for(var j=0;j<3;j++){
+                    let p=0;
                 let t =0;
+                    let r = arr1[j];
                 for(var i=0; i<4;i++){
                    var w =3-i;
-                   if(o.charAt(i) == "A"){
+                   if(r.charAt(i) == "A"){
                         t= 10*Math.pow(16,w);
                         p =p+t;
                     }
-                    if(o.charAt(i) == "B"){
+                    if(r.charAt(i) == "B"){
                         t= 11*Math.pow(16,w);
                         p =p+t;
                     }
-                    if(o.charAt(i) == "C"){
+                    if(r.charAt(i) == "C"){
                        t= 12*Math.pow(16,w);
                        p =p+t;
                     }
-                    if(o.charAt(i) == "D"){
+                    if(r.charAt(i) == "D"){
                        t= 13*Math.pow(16,w);
                        p =p+t;
                     }
-                    if(o.charAt(i) == "E"){
+                    if(r.charAt(i) == "E"){
                        t= 14*Math.pow(16,w);
                        p =p+t;
                     }
-                    if(o.charAt(i) == "F"){
+                    if(r.charAt(i) == "F"){
                        t= 15*Math.pow(16,w);
                        p =p+t;
                     }
-                    if(typeof o.charAt(i) == "number"){
-                        
-                        t = o*Math.pow(16,w);
+                    if(typeof r.charAt(i) == "number"){
+                        var r1 =r.charAt(i);// getting the character at the specified index
+                        t = r1*Math.pow(16,w);
                         p =p+t;
                     }
                     }
-     if(p>32767){
+                    if(p>32767){
            p=p-65535;
                 }
      if(p<=32767){
                     p = p;
                 }
-          p=p/1000;
-          document.write(p);
-               if(p>15){
-                    document.write("person is slouching");
+          p=p/10000;
+                    arr1[j] = p;
+                    //document.write(arr1[j]);
+                    sum =sum + Math.pow(arr1[j],2);
+                    zaxis=arr1[2];
                 }
-                if(p<15){
-                    document.write("person is not slouching");
+                  let mod = Math.sqrt(sum);
+                  let result = zaxis/mod;
+                  document.write(result);
+                  
+          
+               if(result>15){
+                    document.write("person is slouching at this vertex");
+                }
+                if(result<15){
+                    document.write("person is not slouching at this vertex");
                 } 
             }
            function bang() {
@@ -107,22 +120,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
      for (var j = 0; j < words.length; j++)
      {   var k =3;
          if(k == j){
-             let v = words[3];
+            let v1 = words[1];
              //h = convert(v);
-            document.write(v);
-           condition(v);
+             let v2 = words[2];
+             let v3 = words[3];
+             let arr =[]
+             arr[0] = v1;arr[1] = v2;arr[2] = v3;
+            
+           condition(arr);
          break;
      }
      }
-     
-          }
+       }
   }
   xhttp.open("GET", "mds.txt");
   xhttp.send();
 }
-
-
-            </script>
+  </script>
         
     </head>
     <body>
