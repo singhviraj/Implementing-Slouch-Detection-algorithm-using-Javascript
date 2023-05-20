@@ -96,10 +96,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     arr1[j] = p;
                     //document.write(arr1[j]);
                     sum =sum + Math.pow(arr1[j],2);
-                    zaxis=arr1[2];
+                    
                 }
+                  zaxis=arr1[2];
                   let mod = Math.sqrt(sum);
                   let result = zaxis/mod;
+                  result = Math.acos(result);
+                  result = (result*180)/3.14159  ; //converting radians to degree
                   document.write(result);
                   
           
