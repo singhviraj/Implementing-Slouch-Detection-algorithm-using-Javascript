@@ -120,7 +120,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     let lines = x.split('\n');
     for (var i = 0; i < lines.length-1; i++) {
      let words =lines[i].split(',');
-     for (var j = 0; j < words.length; j++)
+     
+      let v1 = words[1];
+             //h = convert(v);
+             let v2 = words[2];
+             let v3 = words[3];
+             let arr =[]
+             arr[0] = v1;arr[1] = v2;arr[2] = v3;
+            
+           condition(arr);
+        // break;
+   /*  for (var j = 0; j < words.length; j++)
      {   var k =3;
          if(k == j){
             let v1 = words[1];
@@ -133,7 +143,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
            condition(arr);
          break;
      }
-     }
+     } */
        }
   }
   xhttp.open("GET", "mds.txt");
